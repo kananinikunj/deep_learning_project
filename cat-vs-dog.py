@@ -3,6 +3,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import gdown
+import os
 
 st.title("Hello")
 model_file = 'cat_dog_model.h5'
