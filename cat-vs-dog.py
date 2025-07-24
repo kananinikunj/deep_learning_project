@@ -29,7 +29,7 @@ st.write(model.summary())
 
 
 # Load model
-model = tf.keras.models.load_model("cat_dog_model.h5")
+#model = tf.keras.models.load_model("cat_dog_model.h5")
 
 
 # Preprocessing
