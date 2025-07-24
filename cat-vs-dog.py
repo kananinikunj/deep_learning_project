@@ -2,6 +2,31 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+import gdown
+
+model_file = 'cat_dog_model.h5'
+
+# Download from Google Drive if not exists
+file_id = '1fUtsl5VJv_F6lz-l2IaGaQxyGVDpOqAm'  # Replace with your actual file ID
+url = f'https://drive.google.com/uc?id={file_id}'
+
+if not os.path.exists(model_file):
+    st.info("Downloading model from Google Drive...")
+    gdown.download(url, model_file, quiet=False)
+
+# Load the model
+@st.cache_resource
+def load_my_model():
+    model = tf.keras.models.load_model(model_file)
+    return model
+
+model = load_my_model()
+
+st.success("Model loaded successfully!")
+st.write(model.summary())
+
+
+
 
 # Load model
 model = tf.keras.models.load_model("cat_dog_model.h5")
